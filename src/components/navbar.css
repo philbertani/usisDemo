@@ -1,0 +1,33 @@
+
+.navElem {
+  text-decoration: none;
+  border-style: groove;
+  border-width: .5em;
+  font-weight: bold;
+  background-color: rgba(100,100,250,.8);
+  color: yellow;
+  font-size: 1em;
+  padding: 2px;
+
+}
+
+.navElem:hover {
+  background-color: yellow;
+  color: rgba(70,70,255,1);
+  border-style: inset;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(200,200,10,.6);
+  color: gray;
+  align-items: center;
+  justify-content: space-evenly;
+  border-style: ridge;
+  border-width: 1.em;
+  z-index:300;
+  display: flex;
+}
