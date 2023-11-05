@@ -7,22 +7,23 @@ export default function Towers() {
   const baseHeight = baseWidth;
 
   const towerOutput = [];
-  const towerPos = [[60,5],[20,1],[40,25],[42,29],[70,25],[20,40],[35,55],[70,55],[60,80],[80,50],[86,50]];
+  //const towerPos = [[60,5],[20,1],[40,25],[42,29],[70,25],[20,40],[35,55],[70,55],[60,80],[80,50],[86,50]];
+  const towerPos = [[60,5],[10,1],[30,25],[32,29],[70,25],[20,40],[35,55],[50,55],[60,80],[50,50],[56,50]];
 
   for (const pos of towerPos) {
 
     const thisStyle = {
       position: "absolute",
-      backgroundColor: "rgba(255,20,0,.5)",
+      backgroundColor: "rgba(255,20,0,.4)",
       borderRadius: "50%",
       width: baseWidth + "px",
       height: baseHeight + "px",
-      transform: "translate(-50%,-50%)"
+      transform: "translate(66%,66%)"
     }
-    thisStyle.top = pos[0] + "%";
-    thisStyle.left = pos[1] + "%";
+    thisStyle.top = pos[1] + "%";
+    thisStyle.left = pos[0] + "%";
 
-    const keyVal = pos[0].toString() + pos[1].toString();
+    const keyVal = pos[1].toString() + pos[0].toString();
 
     //console.log(towerAttribs);
     towerOutput.push( <div key={"tower"+keyVal} style={thisStyle}></div>)
@@ -30,13 +31,14 @@ export default function Towers() {
     const outerStyle = {
       position: "absolute",
       borderRadius: "50%",
-      width: baseWidth*5 + "px",
-      height: baseHeight*5 + "px",
-      transform: "translate(-50%,-50%)",
-      backgroundColor: "rgba(0,0,255,.2)"
+      width: baseWidth*6 + "px",
+      height: baseHeight*6 + "px",
+      backgroundColor: "rgba(0,0,255,.2)",
+      transform: "translate(-30%,-28%)"
     }
-    outerStyle.left = pos[1] + "%";
-    outerStyle.top = pos[0] + "%"
+
+    outerStyle.top = pos[1] + "%"
+    outerStyle.left = pos[0] + "%";
 
     towerOutput.push( <div key={"maxDistance"+keyVal} style={outerStyle}></div> );
     

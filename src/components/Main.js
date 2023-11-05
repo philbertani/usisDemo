@@ -18,8 +18,8 @@ const Main = () => {
       <Routes>
         <Route path='/nothing' element={<Nothing />} />
         <Route path='/map' element={<Map />} />
-        <Route path='/campuses' element={<Campuses />} />
-        <Route path='/*' element={<Nothing />} />
+        <Route path='/towers' element={<Campuses />} />
+        <Route path='/*' element={<Campuses />} />
       </Routes>
     </div>
   );

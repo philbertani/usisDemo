@@ -1,8 +1,7 @@
-import React, {useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAllCampuses, selectHover,
-  setHover, selectDBupdated, fetchAllCampuses,
-  selectDivRefs } from "../slices/campusesSlice";
+  setHover, selectDivRefs } from "../slices/campusesSlice";
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +19,6 @@ const Campuses = () => {
 
   const campusData = useSelector(selectAllCampuses);
   const hoverIndex = useSelector(selectHover);
-  const singleCampusCreated = useSelector(selectDBupdated);
   const divRefs = useSelector(selectDivRefs) 
 
   //we need refs to the campus info divs because we need to know
@@ -32,10 +30,6 @@ const Campuses = () => {
     const newRef = useRef()
     newDivRefState.push(newRef)
   }  
-
-  useEffect( ()=>{
-    dispatch(fetchAllCampuses())
-  }, [singleCampusCreated] )
 
   let campusMapOutput = [];
   let campusDataOutput = [];
@@ -104,8 +98,8 @@ const Campuses = () => {
             handleMouseOut(event, i);
           }}
           onClick={(event)=> {changeRoute(event,campus.id) } }
-          style={{ position: "absolute", left: `${x}`, top: `${y}` }}
-        ></div>
+          style={{ textAlign:"center", position: "absolute", left: `${x}`, top: `${y}` }}
+        >{campus.id}</div>
       );
 
       campusDataOutput.push(

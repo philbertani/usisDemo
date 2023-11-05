@@ -1,5 +1,6 @@
 
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import  campusesReducer from '../slices/campusesSlice';
 
 const mainReducer = createSlice(
   {
@@ -13,6 +14,7 @@ const mainReducer = createSlice(
 const redux = configureStore({
   reducer: {
     main: mainReducer.reducer,
+    campuses: campusesReducer,
   }
 });
 

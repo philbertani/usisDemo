@@ -6,8 +6,8 @@ import "./navbar.css";
 const Navbar = () => {
   return (
     <div id="navbar" className='row'>
-      <Link className='navElem' to="/map">Map</Link>
-      <Link className='navElem' to="/nothing">Nothing</Link>
+      <Link className='navElem' to="/map">Coverage Map</Link>
+      <Link className='navElem' to="/towers">Tower Info</Link>
     </div>
   );
 };

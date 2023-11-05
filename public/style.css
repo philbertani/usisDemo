@@ -42,6 +42,8 @@ main {
   border-style: solid;
   border-color: green;
   transition: 1.2s;
+  text-align: center;
+  line-height: 100px;
 }
 
 .campus:hover {
@@ -51,7 +53,9 @@ main {
   transform: translate(-16%, -16%);
   border-style: solid;
   border-color: black;
-  transition:.6s;
+  transition:.4s;
+  font-size: 2em;
+  line-height: 150px;
 }
 
 .campusHover {
@@ -62,11 +66,14 @@ main {
   border-radius: 50%;
   border-style: solid;
   border-color: black;
-  transition:.6s;
+  transition:.4s;
+  font-size: 2em;
+  line-height: 150px;
 }
 
 .campusHide {
   background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
   transition: .8s;
 }
 
@@ -139,12 +146,14 @@ img {
   display: flex;
   overflow: auto;
   float:  right;
-  width: 50vw;
+  width: 25vw;
+  min-width: 250px;
   flex-direction: column;
   z-index: 1;
   margin-top: 80px;
-  margin-right: 20px;
+  margin-right: 50px;
 }
+
 
 .campusInfo {
   color: white;
