@@ -4,11 +4,23 @@ import { selectAllCampuses, selectHover,
   setHover, selectDivRefs } from "../slices/campusesSlice";
 
 import { useNavigate } from "react-router-dom";
+import useCounter from "./Counter";
 
 const classNames = ['campus','campusHide','campusHover']
 const infoColors = ['','','rgba(255, 255, 0, .7)' ]
 const fontColors = ['','','black']
 //setting inline styles to null allows them to revert back to their original class values
+
+const useRefs = () => {
+  const tmp = [];
+  for (let i=0; i<100; i++) {
+    const colorRef = useRef();
+    tmp.push(colorRef);
+  }
+  return tmp;
+}
+
+const badTower = 10;
 
 const Campuses = () => {
 
@@ -19,18 +31,30 @@ const Campuses = () => {
   const hoverIndex = useSelector(selectHover);
   const divRefs = useSelector(selectDivRefs) 
 
+  const counter = useCounter();
+  
   //we need refs to the campus info divs because we need to know
   //the actual positions, since if we highlight a campus on the map
   //we want the highlighted campus info to scroll back into view
   //if it is scrolled out 
-  let newDivRefState = []
-  for (let i=0; i<100; i++) {
-    const newRef = useRef()
-    newDivRefState.push(newRef)
-  }  
+  const newDivRefState = useRefs();
+  const colorRefs = useRefs();
 
   let campusMapOutput = [];
   let campusDataOutput = [];
+
+  React.useEffect( ()=>{
+    let ii = hoverIndex[badTower]
+    const color = ii !==1 ? counter%2 : 2;
+    const color2 = counter%2;
+
+    let colors = ["rgba(255,0,0,.5)","rgba(255,0,0,1)","rgba(0,0,0,0)"];
+ 
+    if  (colorRefs[badTower].current) {
+      colorRefs[badTower].current.style.backgroundColor = colors[color];
+      newDivRefState[badTower].current.style.backgroundColor = colors[color2];
+    }
+  },[colorRefs,counter,hoverIndex,newDivRefState])
 
   if (campusData.length > 0) {
 
@@ -39,7 +63,7 @@ const Campuses = () => {
       const hoverData = Array(campusData.length).fill(0)
       dispatch(setHover(hoverData))
       
-      navigate('/usis/towers/'+i)   
+      navigate('/towers/'+i)   
       //this is equivalent to static <Link and more
       //straightforward programatically, plus it lets us 
       //make a whole div clickable as href
@@ -79,6 +103,7 @@ const Campuses = () => {
 
       campusMapOutput.push(
         <div
+          ref={colorRefs[i]}
           key={'campus'+campus.id}
           id={campus.id}
           className={classToUse}
@@ -120,11 +145,11 @@ const Campuses = () => {
   }
 
   return [
-    <div id="map">
+    <div key="mainMap" id="map">
       {campusMapOutput}
       <img src="map01.png" alt="Map of Part of NYC"></img>
     </div>,
-    <div className='campusContainer'>{campusDataOutput}</div>
+    <div key="mainInfo" className='campusContainer'>{campusDataOutput}</div>
   ]
 }
 

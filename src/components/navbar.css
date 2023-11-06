@@ -6,7 +6,7 @@
   font-weight: bold;
   background-color: rgba(100,100,250,.8);
   color: yellow;
-  font-size: 1em;
+  font-size: 1.5em;
   padding: 2px;
 
 }
@@ -26,8 +26,6 @@
   color: gray;
   align-items: center;
   justify-content: space-evenly;
-  border-style: ridge;
-  border-width: 1.em;
   z-index:300;
   display: flex;
 }

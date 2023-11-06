@@ -18,10 +18,10 @@ const Main = () => {
       <Navbar key='navbar'/>
       <Routes>
         <Route path='/nothing' element={<Nothing />} />
-        <Route path='/usis/map' element={<Map />} />
-        <Route path='/usis/towers' element={<Campuses />} />
+        <Route path='/map' element={<Map />} />
+        <Route path='/towers' element={<Campuses />} />
         <Route path='/*' element={<Campuses />} />
-        <Route path="/usis/towers/:towerId" element={<OneTower />} />
+        <Route path="/towers/:towerId" element={<OneTower />} />
       </Routes>
     </div>
   );
