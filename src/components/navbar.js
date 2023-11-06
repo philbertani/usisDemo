@@ -6,8 +6,9 @@ import "./navbar.css";
 const Navbar = () => {
   return (
     <div id="navbar" className='row'>
-      <Link className='navElem' to="/map">Coverage Map</Link>
-      <Link className='navElem' to="/towers">Tower Info</Link>
+      <span style={{color:"black", fontSize:"1.5em"}}>USIS Cell Phone Towers NYC Area</span>
+      <Link className='navElem' to="/usis/map">Coverage Map</Link>
+      <Link className='navElem' to="/usis/towers">Tower Links</Link>
     </div>
   );
 };

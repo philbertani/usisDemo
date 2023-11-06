@@ -7,7 +7,6 @@ export default function Towers() {
   const baseHeight = baseWidth;
 
   const towerOutput = [];
-  //const towerPos = [[60,5],[20,1],[40,25],[42,29],[70,25],[20,40],[35,55],[70,55],[60,80],[80,50],[86,50]];
   const towerPos = [[60,5],[10,1],[30,25],[32,29],[70,25],[20,40],[35,55],[50,55],[60,80],[50,50],[56,50]];
 
   for (const pos of towerPos) {
@@ -34,7 +33,7 @@ export default function Towers() {
       width: baseWidth*6 + "px",
       height: baseHeight*6 + "px",
       backgroundColor: "rgba(0,0,255,.2)",
-      transform: "translate(-30%,-28%)"
+      transform: "translate(-32%,-28%)"
     }
 
     outerStyle.top = pos[1] + "%"

@@ -10,8 +10,6 @@ const infoColors = ['','','rgba(255, 255, 0, .7)' ]
 const fontColors = ['','','black']
 //setting inline styles to null allows them to revert back to their original class values
 
-let renderCount = 0
-
 const Campuses = () => {
 
   const dispatch = useDispatch();
@@ -41,18 +39,13 @@ const Campuses = () => {
       const hoverData = Array(campusData.length).fill(0)
       dispatch(setHover(hoverData))
       
-      navigate('/campuses/'+i)   
+      navigate('/usis/towers/'+i)   
       //this is equivalent to static <Link and more
       //straightforward programatically, plus it lets us 
       //make a whole div clickable as href
     }
 
     function handleMouseOver(event, i, divRefs) {
-        //console.log("mouseover:", event, i);
-        //only redo the state if we change to a different div or else
-        //we get unnecessary renderings by just moving the mouse over the 
-        //same div
-        //console.log('yyyyyyyyyyyyy',i,hoverIndex)
         if ( hoverIndex.length >= i && hoverIndex[i] !== 2) { 
           //console.log('ttttt',i,window.innerHeight,
           //  newDivRefState[i].current.getBoundingClientRect())
@@ -74,8 +67,6 @@ const Campuses = () => {
         dispatch(setHover(hoverData));
     }
     
-    renderCount ++
-
     for (let i = 0; i < campusData.length; i++) {
 
       const campus = campusData[i];
@@ -125,7 +116,6 @@ const Campuses = () => {
       );
     }
 
-    //console.log('zzzzzzzzzzzzz',renderCount,newDivRefState)
 
   }
 
